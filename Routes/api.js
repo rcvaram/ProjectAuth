@@ -9,26 +9,6 @@ const fileUpload = require('express-fileupload');
 
 app.use(fileUpload());
 
-app.post('/upload', function (req, res) {
-    if (!req.files) {
-        console.log("ttt");
-        return res.status(400).send('No files were uploaded.');
-
-    }
-    return res.status(400).send('No files were uploaded.');
-
-    let sampleFile = req.files.sampleFile;
-
-    sampleFile.mv('/filename.jpg', function (err) {
-        if (err) {
-            console.log(err);
-            return res.status(500).send(err);
-        }
-        console.log("tes");
-        res.send('File uploaded!');
-    });
-});
-
 api.post('/getStudentData', function (req, res) {
 
     var studentID = req.body.studentId;
